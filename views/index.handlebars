@@ -1,7 +1,13 @@
 <h1>MySql Todo List</h1>
 
+<input type='text' />
+
 <ul>
     {{#each todos}}
-        <li>{{ description }}</li>
+        <li>
+            {{ description }}
+            {{ completed }}
+            {{ id }}
+        </li>
     {{/each}}
 </ul>

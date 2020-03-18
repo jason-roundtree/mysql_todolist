@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const Todo = require('../models/model');
+const Todo = require('../models/model.js');
 
 router.get('/', (req, res) => {
     Todo.getTodos(data => {
