@@ -14,5 +14,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/todos', (req, res) => {
+    Todo.createTodo(
+        'description',
+        req.body.description, 
+        result => res.json(result)
+    );
+});
+
 module.exports = router;
 

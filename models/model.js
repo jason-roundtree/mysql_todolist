@@ -13,6 +13,12 @@ const Todo = {
         })
     },
 
+    createTodo: (col, val, cb) => {
+        orm.createTodo('todos', col, val, (res) => {
+            cb(res);
+        })
+    },
+
     updateTodo: (cb) => {
         orm.updateTodo('todos', (res) => {
             cb(res);
