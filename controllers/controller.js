@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         const hbsObj = {
             todos: data
         }
-        console.log('getTodos hbdObj: ', hbsObj)
+        // console.log('getTodos hbdObj: ', hbsObj)
         res.render('index', hbsObj);
     });
 });
@@ -18,6 +18,24 @@ router.post('/todos', (req, res) => {
     Todo.createTodo(
         'description',
         req.body.description, 
+        result => res.json(result)
+    );
+});
+
+router.put('/todo', (req, res) => {
+    console.log('update todo req.body: ', req.body)
+    Todo.updateTodo(
+        req.body.id,
+        req.body.column,
+        req.body.value,
+        result => res.json(result)
+    )
+});
+
+router.delete('/todos', (req, res) => {
+    // console.log('req.body: ', )
+    Todo.deleteTodo(
+        req.body.id,
         result => res.json(result)
     );
 });

@@ -7,10 +7,13 @@
 
 <ul>
     {{#each todos}}
-        <li>
-            {{ description }}
+        <li id={{ id }}>
+            {{ description }}:
             {{ completed }}
-            {{ id }}
+            <button class="delete" >Delete {{ id }}</button>
+            <button class="completed">Mark {{ id }} Completed</button>
+            <button class="update_desc">Update {{ id }} description</button>
         </li>
+        
     {{/each}}
 </ul>

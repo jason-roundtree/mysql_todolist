@@ -10,25 +10,25 @@ const Todo = {
     getTodo: (cb) => {
         orm.getTodo('todos', (res) => {
             cb(res);
-        })
+        });
     },
 
     createTodo: (col, val, cb) => {
         orm.createTodo('todos', col, val, (res) => {
             cb(res);
-        })
+        });
     },
 
-    updateTodo: (cb) => {
-        orm.updateTodo('todos', (res) => {
+    updateTodo: (id, col, val, cb) => {
+        orm.updateTodo('todos', id, col, val, (res) => {
             cb(res);
-        })
+        });
     },
 
-    deleteTodo: (cb) => {
-        orm.deleteTodo('todos', (res) => {
+    deleteTodo: (id, cb) => {
+        orm.deleteTodo('todos', id, (res) => {
             cb(res);
-        })
+        });
     },
 
     // deleteTodos: () => {
