@@ -6,7 +6,7 @@ const orm = {
             insert into ${table} 
             (${col}) values (?);
         `;
-        console.log('post queryString: ', queryString)
+        // console.log('post queryString: ', queryString)
         connection.query(queryString, val, (err, result) => {
             if (err) {
                 throw err;
@@ -46,11 +46,21 @@ const orm = {
     },
 
     updateTodo: (table, id, col, val, cb) => {
-        const queryString = `
-            update ${table} 
-            set ${col}=${val}
-            where id=${id};
-        `
+        let queryString; 
+        if (typeof val === 'string') {
+            queryString = `
+                update ${table} 
+                set ${col}="${val}"
+                where id=${id};
+            `
+        } else {
+            queryString = `
+                update ${table} 
+                set ${col}=${val}
+                where id=${id};
+            `
+        }
+
         console.log('updateTodo queryString: ', queryString)
         connection.query(queryString, (err, result) => {
             if (err) {
